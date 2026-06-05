@@ -1,0 +1,927 @@
+It is very different way of writing code with help of classes and objects and we can create our own applications and helps in making the real world applications.
+
+# Classes & Object
+
+Syntax for creating an Object
+
+- object name=class name ()
+
+Constructor: It is a function inside a class 
+
+## Python OOP — Part 1 Notes
+
+---
+
+# 1. Introduction to OOP in Python
+
+## What is OOP?
+
+**OOP stands for Object-Oriented Programming.**
+
+The main idea of OOP is:
+
+> OOP allows programmers to create their own data types.
+> 
+
+In normal Python, we already use built-in data types like:
+
+```python
+int
+str
+list
+dict
+tuple
+```
+
+But in real-world programming, sometimes these built-in data types are not enough.
+
+For example, if we are building a banking application, we may need custom things like:
+
+```python
+Account
+ATM
+Customer
+Transaction
+```
+
+These are not built-in Python data types.
+
+So, using OOP, we can create our own custom data types.
+
+---
+
+# 2. Class and Object
+
+## Class
+
+A **class** is like a blueprint.
+
+It defines rules, properties, and behavior.
+
+Example:
+
+```python
+class Atm:
+    pass
+```
+
+Here, `Atm` is a class.
+
+It is not the actual ATM machine.
+
+It is only the design or blueprint of an ATM.
+
+---
+
+## Object
+
+An **object** is a real instance created from a class.
+
+Example:
+
+```python
+sbi = Atm()
+```
+
+Here, `sbi` is an object of the `Atm` class.
+
+Simple way to remember:
+
+```
+Class = Blueprint
+Object = Real thing created from blueprint
+```
+
+Example from real life:
+
+```
+Class  → Car design
+Object → Actual BMW, Audi, Swift
+```
+
+---
+
+# 3. Why Do We Need OOP?
+
+OOP helps us write code that is:
+
+- Organized
+- Reusable
+- Easy to manage
+- Scalable
+- Closer to real-world systems
+
+Without OOP, big applications become messy because everything is written as separate functions and variables.
+
+With OOP, related data and behavior are kept together inside one class.
+
+Example:
+
+For an ATM system:
+
+```
+PIN
+Balance
+Check balance
+Withdraw money
+Deposit money
+```
+
+All these things belong to an ATM or bank account, so we can keep them inside one class.
+
+---
+
+# 4. Banking Application Example
+
+The instructor explains OOP using a simple ATM application.
+
+The ATM class contains:
+
+## Attributes
+
+Attributes are data or variables inside a class.
+
+Example:
+
+```python
+pin
+balance
+```
+
+In an ATM application:
+
+```
+pin     → stores the user PIN
+balance → stores the account balance
+```
+
+---
+
+## Methods
+
+Methods are functions written inside a class.
+
+Example methods in ATM:
+
+```python
+menu()
+check_balance()
+withdraw()
+```
+
+These methods define what the ATM can do.
+
+---
+
+# 5. Basic ATM Class Structure
+
+```python
+class Atm:
+
+    def __init__(self):
+        self.pin = ""
+        self.balance = 0
+        self.menu()
+
+    def menu(self):
+        user_input = input("""
+        Hi, how can I help you?
+
+        1. Press 1 to create PIN
+        2. Press 2 to change PIN
+        3. Press 3 to check balance
+        4. Press 4 to withdraw
+        5. Press anything else to exit
+        """)
+
+    def check_balance(self):
+        print("Your balance is", self.balance)
+
+    def withdraw(self):
+        amount = int(input("Enter amount: "))
+        if amount <= self.balance:
+            self.balance = self.balance - amount
+            print("Withdraw successful")
+        else:
+            print("Insufficient balance")
+```
+
+---
+
+# 6. Constructor: `__init__()`
+
+## What is a Constructor?
+
+The constructor is a special method in Python.
+
+Constructor is  a function jiska control user pe nahi hai vo automatically trigger ho jata hai application ke trigger hone pe.
+
+…………………………………………………………………………………………………………………………………………………………..
+
+**Philosophical example : IF ‘GOD’ IS THE PROGRAMMER** 
+
+1.If EARTH IS THE CLASS 
+
+And if  HUMANS ARE THE OBJECT SO WHAT CONTROLS SHOULDN’T BE IN THE HANDS OF THE HUMANS:
+
+ANS:  Death
+
+MAINLY JO CONSTRUCTOR VO CODE CONTAIN KRTA HAI JISKA ACCESS HUM USER KO NAHI DENA CHAATE JAISE KI  DATABASE TO INTERNET SE CONNECT KRNA HUM USER TO THODI DENGE YE , YE SAB TOH OBJECT (PROGRAM EXECUTE HOTE HE HO JANA CHAIYE).
+
+………………………………………………………………………………………………………………………………………………………….
+
+It is written as:
+
+```python
+__init__()
+```
+
+It runs automatically when an object is created.
+
+Example:
+
+```python
+obj = Atm()
+```
+
+As soon as this object is created, Python automatically calls:
+
+```python
+__init__()
+```
+
+---
+
+## Purpose of Constructor
+
+The main purpose of the constructor is **configuration**.
+
+It is used to set up the object before using it.
+
+Example:
+
+```python
+def __init__(self):
+    self.pin = ""
+    self.balance = 0
+```
+
+This means whenever a new ATM object is created:
+
+```
+PIN is empty
+Balance is 0
+```
+
+So the object starts with default values.
+
+---
+
+## Important Point
+
+The constructor is not called manually.
+
+Python calls it automatically.
+
+```python
+obj = Atm()
+```
+
+This line automatically runs:
+
+```python
+__init__()
+```
+
+---
+
+# 7. Methods vs Functions
+
+## Function
+
+A function is written outside a class.
+
+Example:
+
+```python
+def greet():
+    print("Hello")
+```
+
+This is a function.
+
+---
+
+## Method
+
+A method is written inside a class.
+
+Example:
+
+```python
+class Student:
+    def greet(self):
+        print("Hello")
+```
+
+Here, `greet()` is a method because it is inside a class.
+
+---
+
+## Difference Between Function and Method
+
+| Function | Method |
+| --- | --- |
+| Written outside a class | Written inside a class |
+| Called directly | Called using an object |
+| General purpose | Belongs to an object/class |
+
+Example:
+
+```python
+def add():
+    pass
+```
+
+This is a function.
+
+```python
+class Calculator:
+    def add(self):
+        pass
+```
+
+This is a method.
+
+---
+
+# 8. Magic Methods / Dunder Methods
+
+## What are Magic Methods?
+
+Magic methods are special methods in Python that start and end with double underscores.
+
+Example:
+
+```python
+__init__
+__add__
+__sub__
+__mul__
+__truediv__
+```
+
+They are also called **dunder methods**.
+
+Dunder means:
+
+```
+Double Underscore
+```
+
+---
+
+## Why Are Magic Methods Used?
+
+Magic methods help us define special behavior for our own objects.
+
+For example, normally we can add numbers:
+
+```python
+10 + 20
+```
+
+But if we create our own objects, Python does not automatically know how to add them.
+
+Using `__add__`, we can tell Python how to add two custom objects.
+
+---
+
+# 9. Fraction Class Example
+
+The instructor explains magic methods using a Fraction class.
+
+A fraction has:
+
+```
+Numerator
+Denominator
+```
+
+Example:
+
+```
+1/2
+3/4
+```
+
+We can create a custom Fraction class.
+
+```python
+class Fraction:
+
+    def __init__(self, x, y):
+        self.num = x
+        self.den = y
+
+    def __str__(self):
+        return "{}/{}".format(self.num, self.den)
+```
+
+Now we can create objects:
+
+```python
+fr1 = Fraction(1, 2)
+fr2 = Fraction(3, 4)
+```
+
+---
+
+# 10. `__str__()` Method
+
+The `__str__()` method controls how the object is printed.
+
+Without `__str__()`, Python may print object memory location.
+
+Example:
+
+```python
+print(fr1)
+```
+
+If `__str__()` is defined, output becomes:
+
+```
+1/2
+```
+
+Code:
+
+```python
+def __str__(self):
+    return "{}/{}".format(self.num, self.den)
+```
+
+---
+
+# 11. Adding Two Fraction Objects
+
+To add two fraction objects, we use `__add__()`.
+
+Formula:
+
+```
+a/b + c/d = (ad + bc) / bd
+```
+
+Code:
+
+```python
+def __add__(self, other):
+    temp_num = self.num * other.den + other.num * self.den
+    temp_den = self.den * other.den
+    return "{}/{}".format(temp_num, temp_den)
+```
+
+Example:
+
+```python
+fr1 = Fraction(1, 2)
+fr2 = Fraction(3, 4)
+
+print(fr1 + fr2)
+```
+
+Output:
+
+```
+10/8
+```
+
+Explanation:
+
+```
+1/2 + 3/4
+
+= (1×4 + 3×2) / (2×4)
+= (4 + 6) / 8
+= 10/8
+```
+
+---
+
+# 12. Other Magic Methods
+
+## Subtraction
+
+```python
+def __sub__(self, other):
+    temp_num = self.num * other.den - other.num * self.den
+    temp_den = self.den * other.den
+    return "{}/{}".format(temp_num, temp_den)
+```
+
+Used when we write:
+
+```python
+fr1 - fr2
+```
+
+---
+
+## Multiplication
+
+```python
+def __mul__(self, other):
+    temp_num = self.num * other.num
+    temp_den = self.den * other.den
+    return "{}/{}".format(temp_num, temp_den)
+```
+
+Used when we write:
+
+```python
+fr1 * fr2
+```
+
+---
+
+## Division
+
+```python
+def __truediv__(self, other):
+    temp_num = self.num * other.den
+    temp_den = self.den * other.num
+    return "{}/{}".format(temp_num, temp_den)
+```
+
+Used when we write:
+
+```python
+fr1 / fr2
+```
+
+---
+
+# 13. Complete Fraction Class
+
+```python
+class Fraction:
+
+    def __init__(self, x, y):
+        self.num = x
+        self.den = y
+
+    def __str__(self):
+        return "{}/{}".format(self.num, self.den)
+
+    def __add__(self, other):
+        temp_num = self.num * other.den + other.num * self.den
+        temp_den = self.den * other.den
+        return "{}/{}".format(temp_num, temp_den)
+
+    def __sub__(self, other):
+        temp_num = self.num * other.den - other.num * self.den
+        temp_den = self.den * other.den
+        return "{}/{}".format(temp_num, temp_den)
+
+    def __mul__(self, other):
+        temp_num = self.num * other.num
+        temp_den = self.den * other.den
+        return "{}/{}".format(temp_num, temp_den)
+
+    def __truediv__(self, other):
+        temp_num = self.num * other.den
+        temp_den = self.den * other.num
+        return "{}/{}".format(temp_num, temp_den)
+```
+
+Usage:
+
+```python
+fr1 = Fraction(1, 2)
+fr2 = Fraction(3, 4)
+
+print(fr1)
+print(fr2)
+
+print(fr1 + fr2)
+print(fr1 - fr2)
+print(fr1 * fr2)
+print(fr1 / fr2)
+```
+
+---
+
+# 14. The Concept of `self`
+
+## What is `self`?
+
+`self` is a reference to the current object.
+
+Whenever we create an object, `self` points to that object.
+
+Example:
+
+```python
+class Student:
+
+    def __init__(self, name):
+        self.name = name
+```
+
+Now:
+
+```python
+s1 = Student("Vansh")
+```
+
+Here, `self` refers to `s1`.
+
+If we create another object:
+
+```python
+s2 = Student("Rahul")
+```
+
+Now, for this object, `self` refers to `s2`.
+
+---
+
+# 15. Why is `self` Important?
+
+`self` allows attributes and methods inside a class to communicate with each other.
+
+Example:
+
+```python
+class Atm:
+
+    def __init__(self):
+        self.balance = 0
+
+    def check_balance(self):
+        print(self.balance)
+```
+
+Here:
+
+```python
+self.balance
+```
+
+means the balance of the current object.
+
+Without `self`, Python will not know which object's balance we are talking about.
+
+---
+
+# 16. Golden Rule of OOP
+
+The golden rule explained in the video:
+
+> Class members cannot directly access each other. They need `self` to communicate.
+> 
+
+Example:
+
+```python
+class Atm:
+
+    def __init__(self):
+        self.balance = 0
+
+    def check_balance(self):
+        print(self.balance)
+```
+
+Here, `check_balance()` can access `balance` only because of:
+
+```python
+self.balance
+```
+
+---
+
+# 17. Simple Example to Understand `self`
+
+```python
+class Person:
+
+    def __init__(self, name):
+        self.name = name
+
+    def introduce(self):
+        print("My name is", self.name)
+```
+
+Now:
+
+```python
+p1 = Person("Vansh")
+p2 = Person("Aman")
+
+p1.introduce()
+p2.introduce()
+```
+
+Output:
+
+```
+My name is Vansh
+My name is Aman
+```
+
+Explanation:
+
+For `p1`, `self.name` is `"Vansh"`.
+
+For `p2`, `self.name` is `"Aman"`.
+
+So `self` helps every object keep its own data separately.
+
+---
+
+# 18. Object Communication
+
+In OOP, every object has its own data.
+
+Example:
+
+```python
+class Account:
+
+    def __init__(self, balance):
+        self.balance = balance
+
+a1 = Account(5000)
+a2 = Account(10000)
+```
+
+Here:
+
+```
+a1 balance = 5000
+a2 balance = 10000
+```
+
+Both objects are created from the same class, but their data is different.
+
+That is why `self` is needed.
+
+---
+
+# 19. Key Terms Summary
+
+| Term | Meaning |
+| --- | --- |
+| Class | Blueprint or design |
+| Object | Real instance of a class |
+| Attribute | Variable inside a class/object |
+| Method | Function inside a class |
+| Constructor | Special method that runs automatically when object is created |
+| `self` | Reference to the current object |
+| Magic Method | Special double underscore method |
+| Dunder | Double underscore |
+| `__init__` | Constructor method |
+| `__str__` | Controls object printing |
+| `__add__` | Controls object addition |
+| `__sub__` | Controls object subtraction |
+| `__mul__` | Controls object multiplication |
+| `__truediv__` | Controls object division |
+
+---
+
+# 20. Final Key Takeaway
+
+OOP is a programming style that helps us create our own data types.
+
+It allows us to combine data and behavior together.
+
+Example:
+
+```
+ATM
+- PIN
+- Balance
+- Check balance
+- Withdraw
+- Deposit
+```
+
+This makes the code more organized, scalable, and closer to real-world systems.
+
+OOP is very important because many professional Python libraries and frameworks are built using OOP concepts.
+
+If we understand OOP properly, we can understand how advanced tools and libraries are created.
+
+---
+
+# 21. One-Line Revision
+
+```
+OOP means creating our own data types using classes and objects.
+```
+
+```
+Class is a blueprint, object is the real thing.
+```
+
+```
+Constructor runs automatically when object is created.
+```
+
+```
+Methods are functions inside a class.
+```
+
+```
+self refers to the current object.
+```
+
+```
+Magic methods help customize object behavior.
+```
+
+---
+
+# 22. Quick Practice Questions
+
+## Q1. What is OOP?
+
+OOP is Object-Oriented Programming. It allows programmers to create their own data types using classes and objects.
+
+---
+
+## Q2. What is a class?
+
+A class is a blueprint or design that defines the properties and behavior of objects.
+
+---
+
+## Q3. What is an object?
+
+An object is a real instance created from a class.
+
+---
+
+## Q4. What is a constructor?
+
+A constructor is a special method named `__init__()` that runs automatically when an object is created.
+
+---
+
+## Q5. What is `self`?
+
+`self` is a reference to the current object. It helps access the attributes and methods of that object.
+
+---
+
+## Q6. What is the difference between method and function?
+
+A function is written outside a class, while a method is written inside a class.
+
+---
+
+## Q7. What are magic methods?
+
+Magic methods are special double-underscore methods like `__init__`, `__str__`, and `__add__` that provide special behavior to objects.
+
+---
+
+# 23. Best Mental Model
+
+Think of OOP like a video game character system.
+
+```
+Class = Character design
+Object = Actual player
+Attributes = Health, power, speed
+Methods = Attack, jump, defend
+```
+
+Example:
+
+```python
+class Player:
+
+    def __init__(self, name, health):
+        self.name = name
+        self.health = health
+
+    def attack(self):
+        print(self.name, "is attacking")
+```
+
+Creating objects:
+
+```python
+p1 = Player("Warrior", 100)
+p2 = Player("Mage", 80)
+```
+
+Both players come from the same class, but they have their own data.
+
+This is the power of OOP.
+
+---
