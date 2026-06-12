@@ -1,0 +1,188 @@
+1. What is Abstraction?
+
+Abstraction is the process of hiding implementation details and showing only the essential features to the user.
+
+Real-Life Example
+
+When you drive a car:
+
+You use the steering wheel, brake, and accelerator.
+You don't need to know how the engine works internally.
+
+This is abstraction.
+
+Definition
+
+Abstraction hides unnecessary implementation details and exposes only the required functionality.
+
+Benefits
+Improves security
+Reduces complexity
+Makes code easier to maintain
+Focuses on "what to do" instead of "how to do it"
+2. How is Abstraction Achieved in Python?
+
+Python achieves abstraction using:
+
+ABC (Abstract Base Class)
+@abstractmethod decorator
+
+These are available in Python's built-in abc module.
+
+from abc import ABC, abstractmethod
+3. Abstract Class
+
+An Abstract Class is a class that contains one or more abstract methods.
+
+Characteristics
+Cannot create objects directly.
+Acts as a blueprint for child classes.
+Child classes must implement all abstract methods.
+Syntax
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+Here:
+
+Animal is an abstract class.
+sound() is an abstract method.
+4. Abstract Method
+
+An abstract method is a method that is declared but does not have implementation.
+
+@abstractmethod
+def sound(self):
+    pass
+
+Child classes must define this method.
+
+5. Example of Abstraction
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+
+    def sound(self):
+        return "Bark"
+
+class Cat(Animal):
+
+    def sound(self):
+        return "Meow"
+
+d = Dog()
+c = Cat()
+
+print(d.sound())
+print(c.sound())
+Output
+Bark
+Meow
+6. What Happens If Child Class Doesn't Implement Abstract Method?
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    pass
+
+d = Dog()
+Output
+TypeError:
+Can't instantiate abstract class Dog
+with abstract method sound
+
+Reason:
+
+Dog did not implement sound().
+7. Abstract Class Can Have Normal Methods
+
+An abstract class may contain both:
+
+Abstract methods
+Normal methods
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+
+    @abstractmethod
+    def start(self):
+        pass
+
+    def stop(self):
+        print("Vehicle Stopped")
+
+class Car(Vehicle):
+
+    def start(self):
+        print("Car Started")
+
+c = Car()
+
+c.start()
+c.stop()
+Output
+Car Started
+Vehicle Stopped
+8. Banking Example
+from abc import ABC, abstractmethod
+
+class Bank(ABC):
+
+    @abstractmethod
+    def interest_rate(self):
+        pass
+
+class SBI(Bank):
+
+    def interest_rate(self):
+        print("Interest Rate = 6.5%")
+
+class HDFC(Bank):
+
+    def interest_rate(self):
+        print("Interest Rate = 7%")
+
+s = SBI()
+h = HDFC()
+
+s.interest_rate()
+h.interest_rate()
+Output
+Interest Rate = 6.5%
+Interest Rate = 7%
+9. Difference Between Encapsulation and Abstraction
+Encapsulation	Abstraction
+Hides data	Hides implementation
+Uses private variables	Uses abstract classes
+Focuses on security	Focuses on simplicity
+"How data is protected"	"What functionality is exposed"
+Example
+
+Encapsulation
+
+class Student:
+    def __init__(self):
+        self.__marks = 90
+
+Abstraction
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
