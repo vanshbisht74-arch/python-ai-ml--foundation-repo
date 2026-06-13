@@ -6,7 +6,7 @@ class Bankapp(ABC):
     def security(self):
         pass
 
-class Mobileapp(Bankapp):
+class Mobileapp(Bankapp):  
     def mobile_login(self):
         print("Mobline login")
 
