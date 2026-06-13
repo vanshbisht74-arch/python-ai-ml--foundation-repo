@@ -10,7 +10,7 @@ You use the steering wheel, brake, and accelerator.
 You don't need to know how the engine works internally.
 
 This is abstraction.
-
+   
 Definition
 
 Abstraction hides unnecessary implementation details and exposes only the required functionality.
