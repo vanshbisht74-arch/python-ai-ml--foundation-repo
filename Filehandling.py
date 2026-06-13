@@ -2,7 +2,7 @@
 # How I/0 is done in pyhton
 # 1)Open a FA\ile
 # 2)Read/Write Data
-# 3)Close the File 
+# 3)Close the File  
 f=open("select.txt","w")
 f.write("Hello Vansh")
 f.close()
