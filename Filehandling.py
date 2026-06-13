@@ -226,7 +226,14 @@ class Person:
     def display_info(self):
         print('Hi my name is', self.name, 'and I am', self.age, 'years old')
 p=Person("vansh")
-
+#pickle dump
 import pickle
 with open("pickle.txt","wb") as f:
     pickle.dump(p,f)
+
+
+#pickle load
+import pickle 
+with open("pickel.txt","rb") as f
+p=pickel.load(f)
+p.display_info()
