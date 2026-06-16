@@ -166,3 +166,88 @@ outer()
 print("main ")
 
 
+
+#------------------------------------------------------------------------------------------
+
+
+#DECORATORS:
+#Decorrators are the functions receives another function as input and adds some 
+# functionality (decoration) to it and returns it.
+
+def my_decorator(func):
+    def wrapper():
+        print("********************")
+        func()
+        print("********************")
+
+    return wrapper
+def hello():
+    print("HELLO")
+
+a=my_decorator(hello)
+a()
+#------------------------------------------------------------------------------------------
+def my_decorator(func):
+    def wrapper():
+        print("********************")
+        func()
+        print("********************")
+
+    return wrapper
+@my_decorator
+def hello():
+    print("HELLO")
+hello()
+
+#----------------------------------------------------------------------------------------
+
+
+
+#Decorator function in python which calculates the running time of a python function
+
+
+import time
+def Decorator_timer(func):
+    def wrapper(*args):
+        start=time.time()
+        func(*args)
+        print("Time Taken by the ",func.__name__,time.time()-start,"Secs")
+    return wrapper
+
+
+@Decorator_timer  #Shortcut for using the decorators.
+def say_hello():
+    print("Hello")
+    time.sleep(3)
+
+say_hello()
+
+@Decorator_timer
+def square(num):
+    print(num**2)
+
+
+
+
+
+#------------------------------------------------------------------------------------------
+
+def sanity_check(data_type):
+    def outer_wrapper(func):
+        def inner_wrapper(*args):
+            if type(args)==data_type:
+                func(*args)
+
+            else:
+                raise TypeError("THIS IS NOT THE VALID DATA TYPE FOR THIS FUNCTION TO WORK")
+        return inner_wrapper
+    return outer_wrapper
+
+@sanity_check(int)
+def square(num):
+    print(num**2)
+
+square(56)
+
+
+#--------------------------------------------------------------------------------------------
