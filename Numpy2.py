@@ -2,7 +2,7 @@
 #1.Speed:-
 
 #Time func:
-import time 
+import time  
 start=time.time()
 
 
