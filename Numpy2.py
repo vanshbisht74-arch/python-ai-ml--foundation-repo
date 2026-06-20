@@ -3,7 +3,7 @@
 
 #Time func:
 import time  
-start=time.time()
+start=time.time() 
 
 
  
