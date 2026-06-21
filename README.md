@@ -2,7 +2,7 @@
 
 # 🐍 Python AI/ML Foundation Repo
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=00BFFF&center=true&vCenter=true&width=700&lines=Learning+Python+from+Intermediate+to+Advanced;Building+Strong+AI%2FML+Foundation;Practicing+OOP%2C+NumPy%2C+File+Handling+and+More;Future+AI+Engineer+Journey" alt="Typing SVG" /> 
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=00BFFF&center=true&vCenter=true&width=700&lines=Learning+Python+from+Intermediate+to+Advanced;Building+Strong+AI%2FML+Foundation;Practicing+OOP%2C+NumPy%2C+File+Handling+and+More;Future+AI+Engineer+Journey" alt="Typing SVG" />   
   
 </div>    
 
