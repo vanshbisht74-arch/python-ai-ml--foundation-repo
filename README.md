@@ -16,7 +16,7 @@ I am building this repo to strengthen my Python programming concepts before movi
  
 - Artificial Intelligence 
 - Machine Learning
-- Data Science
+- Data Science 
 - Deep Learning
 - Real-world AI Projects
 
