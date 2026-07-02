@@ -14,7 +14,7 @@ This repository contains my **Python learning journey from intermediate to advan
 
 I am building this repo to strengthen my Python programming concepts before moving deeply into:
  
-- Artificial Intelligence
+- Artificial Intelligence 
 - Machine Learning
 - Data Science
 - Deep Learning
